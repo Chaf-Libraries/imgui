@@ -1006,6 +1006,7 @@ void ImGui_ImplVulkan_DestroyDeviceObjects()
 {
 	ImGui_ImplVulkan_Data *    bd = ImGui_ImplVulkan_GetBackendData();
 	ImGui_ImplVulkan_InitInfo *v  = &bd->VulkanInitInfo;
+	vkDeviceWaitIdle(v->Device);
 	ImGui_ImplVulkanH_DestroyAllViewportsRenderBuffers(v->Device, v->Allocator);
 	ImGui_ImplVulkan_DestroyFontUploadObjects();
 
